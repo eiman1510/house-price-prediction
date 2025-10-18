@@ -1,0 +1,35 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/House_Prices_Data.csv
+      hash: md5
+      md5: 862ce971c086da8903e8ecc7c8a52c92
+      size: 49522076
+      isexec: true
+    - path: src/train.py
+      hash: md5
+      md5: ed2df40006b32f411a2c9625af41b8e9
+      size: 1470
+      isexec: true
+    params:
+      params.yaml:
+        model_params:
+          n_estimators: 100
+          max_depth: 10
+          random_state: 42
+        train_test_split:
+          test_size: 0.2
+          random_state: 42
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 13ad647c1ba9c5ade251acf1329a0164
+      size: 32
+      isexec: true
+    - path: models/model.joblib
+      hash: md5
+      md5: 1c9c9e005043118aeebde1566f60ae05
+      size: 8260113
+      isexec: true
