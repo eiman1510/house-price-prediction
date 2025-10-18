@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        input { width: 100%; padding: 8px; margin: 10px 0; }
+        button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; width: 100%;}
+        .result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pakistan House Price Prediction 🇵🇰</h2>
+        <form action="{{ url_for('predict') }}" method="post">
+            <input type="text" name="bedrooms" placeholder="Bedrooms (e.g., 3)" required="required" />
+            <input type="text" name="baths" placeholder="Baths (e.g., 2)" required="required" />
+            <input type="text" name="area_marla" placeholder="Area in Marla (e.g., 5)" required="required" />
+            <button type="submit">Predict</button>
+        </form>
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+    </div>
+</body>
+</html>
